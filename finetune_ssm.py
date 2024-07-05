@@ -1,5 +1,3 @@
-import sys
-# sys.path.append('/data1/assaf/models/mamba')
 from mamba_ssm.models.mixer_seq_simple import MambaLMHeadModel, DecimatingMambaModel
 
 from transformers import AutoTokenizer
