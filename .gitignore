@@ -1,0 +1,14 @@
+*__pycache__/
+*.egg-info/
+build/
+**.so
+
+tmp*/*
+benchmarks/*
+old/*
+paper/*
+
+.vscode/*
+./mamba_instruct/*
+
+mamba.code-workspace
