@@ -1,8 +1,8 @@
 {
-    "output_dir": "/data2/assaf/mamba/outputs/models",
-    "cache_dir": "/data2/hf_cache",
+    "output_dir": "./output",
+    "cache_dir": "./hf_cache",
     "activate_logging": false,
-    "wandb_dir": "/data2/assaf/wandb/mamba",
+    "wandb_dir": "./wandb",
     "run_name_addon": "",
     "record_debug_params": false,
     "recover_step": null,

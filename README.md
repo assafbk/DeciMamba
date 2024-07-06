@@ -16,8 +16,8 @@
 We present DeciMamba (Decimating-Mamba), the first context extension method for Mamba. 
 In synthetic tasks, as well as in real-world long-range NLP tasks, DeciMamba is able to extrapolate to sequences that are magnitudes longer than the ones seen during training. It does so while requiring less computational resources and doesn't require retraining:
 
-<img src="etc/doc_ret.jpeg" width="50%"/>   <br>
-<img src="etc/niah.png" width="50%"/>  
+<img src="etc/doc_ret.jpeg" width="90%"/>   <br>
+<img src="etc/niah.png" width="90%"/>  
 
 
 </p>
@@ -94,11 +94,6 @@ Additional configurations:
 Check out ```./configs/finetune_ssm_config.json``` for more configurations.
 
 
-<!-- The OpenCHAIR dataset can also be accessed from [🤗 Here](https://huggingface.co/datasets/moranyanuka/OpenCHAIR), and can be loaded as follows:
-```python
-from datasets import load_dataset
-dataset = load_dataset("moranyanuka/OpenCHAIR")['test'] -->
-<!-- ``` -->
 ## Train for Document Retrieval
 In ```./configs/finetune_ssm_config.json``` set:
 * ```dataset```: "squad_retrieve"
