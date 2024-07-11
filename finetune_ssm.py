@@ -134,13 +134,16 @@ def squad_recovery_run_loaders_to_cp(config, step_in_epoch, data_loader_train, s
         return False
 
 def get_data_loaders_ppl_test(config, final_eval_mode=False):
-    dataset_train, _ = get_pg19() 
-
     data_loader_val = None
     if final_eval_mode:
         return data_loader_val
     
-    data_loader_train = DataLoader(dataset_train, collate_fn=lambda d: collate_fn_ppl_test_3(d, config['ppl_test_context_len_train'], config['ppl_test_context_len_train']-1), batch_size=config["grad_accum_steps"], shuffle=True, num_workers=0)
+    if config['eval_mode']: 
+        dataset_train = None
+        data_loader_train = None
+    else:
+        dataset_train, _ = get_pg19()     
+        data_loader_train = DataLoader(dataset_train, collate_fn=lambda d: collate_fn_ppl_test_3(d, config['ppl_test_context_len_train'], config['ppl_test_context_len_train']-1), batch_size=config["grad_accum_steps"], shuffle=True, num_workers=0)
     return data_loader_train, data_loader_val
     
 def get_data_loaders_babilong(config, model_processor, final_eval_mode=False):

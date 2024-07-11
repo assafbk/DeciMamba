@@ -36,6 +36,29 @@ To set up our environment, please run:
 conda env create -f environment.yml
 conda activate decimamba
 ```
+
+Install Mamba:
+```
+pip install causal-conv1d==1.1.1
+pip install mamba-ssm==1.1.1
+```
+
+## Additional Requirements - Passkey Retrieval
+
+Install the required submodule via:
+```
+git submodule init
+git submodule update
+```
+
+## Additional Requirements -  Language Modeling
+In order to train/evaluate the Language Modeling task, the PG-19 dataset must be tokenized. This can be done using the following script:
+```
+python ./custom_datasets/tokenize_pg19.py
+```
+* if only evaluation is desired, add the ```--eval_only``` flag (training set tokenization is significantly longer than the others).
+* The default save location is ```./artifacts/ppl_test/pg19```. If a different location is desired, make sure to change the relevant paths in ```./custom_datasets/pg19.py``` and ```./custom_datasets/tokenize_pg19.py```
+
 <br>
 
 # Evaluate DeciMamba
@@ -103,7 +126,9 @@ Special configurations:
 * ```multidoc_num_noise_docs_eval```: Amounts of documents to use during evaluation (all are evaluated in a single evaluation step). Initialized to [10, 20, 40, 80, 120, 160, 200].
 
 ## Train for Passkey Retrieval
-In ```./configs/finetune_ssm_config.json``` set:
+First, make sure that the additional submodule was cloned (see 'Additional Requirements - Passkey Retrieval' above).
+
+Then, in ```./configs/finetune_ssm_config.json``` set:
 * ```dataset```: "niah_custom"
 
 Special configurations:
@@ -113,7 +138,9 @@ Special configurations:
 * ```niah_context_lens_eval```: Context lengths used during evaluation. Initialized to [1000, 2000, 4000, 8000, 16000, 32000, 64000, 128000].
 
 ## Train for Language Modeling
-In ```./configs/finetune_ssm_config.json``` set:
+First, make sure that the PG-19 dataset was tokenized (see 'Additional Requirements - Language Modeling' above).
+
+Next, in ```./configs/finetune_ssm_config.json``` set:
 * ```dataset```: "ppl_test"
 
 Special configurations:
@@ -124,10 +151,11 @@ Special configurations:
 
 
 ## Notes and Tips:
-* DeciMamba does not support batched inference, therefore the batch size is set according to ```grad_accum_steps```.
+* DeciMamba does not currently support batched inference, therefore the batch size is set according to ```grad_accum_steps```.
 <br>
 
-* We provide a simple automatic algorithm to find the first decimating layer, which doesnt require computing hidden attention. To use it, simply set ```find_deci_layer``` to true. Short explanation: similar to table 10, we scan the first decimating layer, and select the one with the one with the best perfomrance. The model should perform quite well when using only this layer as a DeciMamba layer.
+* We provide a simple automatic algorithm to find the first decimating layer, which doesnt require computing hidden attention. To use it, simply set ```find_deci_layer``` to true. <br>
+Short explanation: similar to table 10 in the paper, we scan the first decimating layer, and select the one with the best perfomrance. The model should perform quite well when using only this layer as a DeciMamba layer.
 
 <br>
 

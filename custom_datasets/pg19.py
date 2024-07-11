@@ -17,20 +17,14 @@ class PG19Dataset(Dataset):
 
 def get_pg19(val_only=False):
     
-    # val_set = torch.load('/data2/assaf/mamba/artifacts/ppl_test/pg19/validation_set.pt')
-    val_set = torch.load('/data2/assaf/mamba/artifacts/ppl_test/pg19/test_set.pt')
+    # val_set = torch.load('./artifacts/ppl_test/pg19/validation_set.pt')
+    val_set = torch.load('./artifacts/ppl_test/pg19/test_set.pt')
     dataset_val = PG19Dataset(val_set)
-    # dataset_val.tokenized_data = dataset_val.tokenized_data[0::20] #FIXME debug
-    # dataset_val.tokenized_data = dataset_val.tokenized_data[0::5] #FIXME debug
-    # dataset_val.tokenized_data = [dataset_val.tokenized_data[0]] #FIXME debug
 
     if val_only:
         return dataset_val
     
-    train_set = torch.load('/data2/assaf/mamba/artifacts/ppl_test/pg19/train_set.pt')
-    # train_set = torch.load('/data2/assaf/mamba/artifacts/ppl_test/pg19/train_set_10k.pt')
+    train_set = torch.load('./artifacts/ppl_test/pg19/train_set.pt')
     dataset_train = PG19Dataset(train_set)
-
-    # dataset_train.tokenized_data = [dataset_train.tokenized_data[0] for i in range(1024)] #FIXME debug
     
     return dataset_train, dataset_val
