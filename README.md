@@ -3,14 +3,13 @@
 <p align="center">
 
 <a href="https://assafbk.github.io/website/">Assaf Ben-Kish</a>,
-<a href="">Itamar Zimerman</a>,
-<a href="">Shady Abu-Hussein</a>,
-<a href="">Nadav Cohen</a>,
-<a href="">Amir Globerson</a>,
-<a href="">Lior Wolf</a>,
+<a href="https://itamarzimm.github.io/">Itamar Zimerman</a>,
+<a href="https://scholar.google.com/citations?user=FZYAWe4AAAAJ&hl=en">Shady Abu-Hussein</a>,
+<a href="https://scholar.google.co.il/citations?user=DmzoCRMAAAAJ&hl=en">Nadav Cohen</a>,
+<a href="https://scholar.google.com/citations?user=5JserkUAAAAJ&hl=en">Amir Globerson</a>,
+<a href="https://scholar.google.co.il/citations?user=UbFrXTsAAAAJ&hl=en">Lior Wolf</a>,
 <a href="https://www.giryes.sites.tau.ac.il/">Raja Giryes</a>
 
-<!-- <a href="https://assafbk.github.io/mocha"><img src="https://img.shields.io/static/v1?label=Project&message=Website&color=blue"></a> -->
 <a href="https://arxiv.org/abs/2406.14528"><img src="https://img.shields.io/badge/arXiv-2311.13608-b31b1b.svg"></a>
 
 We present DeciMamba (Decimating-Mamba), the first context extension method for Mamba. 
@@ -160,7 +159,9 @@ Short explanation: similar to table 10 in the paper, we scan the first decimatin
 <br>
 
 # Acknowledgments
-We thank the authors of BABILong, as we use a version of their code for the passkey retrieval task: https://github.com/booydar/babilong
+We thank the authors of Mamba for their amazing work and contribution: https://github.com/state-spaces/mamba
+
+Additionally, we thank the authors of BABILong, as we use a version of their code for the passkey retrieval task: https://github.com/booydar/babilong
 
 # Citation
 If you find this work useful, please cite the following:
