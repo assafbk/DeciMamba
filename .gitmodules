@@ -3,4 +3,5 @@
 	url = https://github.com/EleutherAI/lm-evaluation-harness/
 [submodule "submodules/babilong"]
 	path = submodules/babilong
-	url = https://github.com/booydar/babilong
+	url = https://github.com/assafbk/babilong.git
+	branch = niah_mamba
