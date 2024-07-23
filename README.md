@@ -22,6 +22,12 @@ In synthetic tasks, as well as in real-world long-range NLP tasks, DeciMamba is 
 </p>
 <br>
 
+# Release Updates
+* [23/7/2024] Added a notebook for Mamba hidden attention calculation
+* [11/7/2024] Code published!
+
+<br>
+
 # Setup
 ## Clone Project
 ```
@@ -159,7 +165,8 @@ Short explanation: similar to table 10 in the paper, we scan the first decimatin
 
 <br>
 
-# Calculate Attention Maps
+
+# Calculate Mamba Hidden Attention Maps
 To calculate Mamba's hidden attention maps:
 * Record data for matrices by running:
 ```
@@ -167,6 +174,7 @@ python finetune_ssm.py --eval 6 --device <device_id>
 ```
 * open ```calculate_mamba_attn_maps.ipynb``` and run notebook.
 
+<br>
 
 # Acknowledgments
 We thank the authors of Mamba for their amazing work and contribution: https://github.com/state-spaces/mamba
