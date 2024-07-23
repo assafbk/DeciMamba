@@ -1,0 +1,61 @@
+{
+    "output_dir": "./output",
+    "cache_dir": "./hf_cache",
+    "activate_logging": false,
+    "wandb_dir": "./wandb",
+    "run_name_addon": "",
+    "record_debug_params": true,
+    "recover_step": null,
+    
+    "eval_mode": true,
+    "mamba_arch": "vanilla",
+    "model_type": "mamba-130m",
+    "use_finetuned_model": false,
+    "load_cp": "assafbk/mamba-130m-niah",
+    "clip_grad": true,
+    "clip_grad_max_norm": 1,
+    "seed" : 123,
+    "lr_sched_type": "const",
+    
+    "save_steps" : 100,
+    "eval_steps" : 20,
+    "grad_flow_steps" : 10,
+    "max_step" : 20000,
+    "epochs": 10,
+
+    "model_device": "cuda:0",
+    "dataset" : "niah_custom",
+    "train_set_size": 6144,
+    "eval_set_size": 20,
+    "eval_samples_to_log": 10,
+    "log_eval_predictions_steps": 10,
+    "eval_max_len": 10,
+    "max_train_input_len": 20000,
+    
+    "niah_train_set_size": 6144,
+    "niah_context_len_train": 2000,
+    "niah_needle_depths_eval": [0.25],
+    "niah_context_lens_eval": [2000, 4000, 8000, 16000],
+    
+    "ppl_test_context_len_train": 2000,
+    "ppl_test_num_windows_per_context_len_eval": 10,
+    "ppl_test_context_lens_eval": [1000, 2000, 4000, 10000, 20000, 30000, 40000, 50000, 60000],
+    "ppl_test_pred_len": 100,
+    "deci_num_chunks": 2,
+
+    "multidoc_num_noise_docs_train": 11,
+    "multidoc_num_noise_docs_eval": [10, 20, 40, 80, 120, 160, 200],
+    "multidoc_noise_injection_policy": "random_loc",
+
+    "activate_decimation": false,
+    "decimation_type": "max_p",
+    "decimation_beta": 0.5,
+    "decimating_layers": [12],
+    "decimation_min_seq_len": 20,
+    "decimation_max_p_L_base": 2000,
+    "find_deci_layer": false,
+    
+    "lr": 1e-4,
+    "weight_decay": 0.1,
+    "grad_accum_steps": 32
+}   
