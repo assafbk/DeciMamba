@@ -62,9 +62,7 @@ def collate_fn_ppl_test_3(data, seq_len=-1, pred_len=1):
 
 def get_lr_scheduler(config, optimizer, train_set_len, batch_size):
     num_steps_in_epoch = train_set_len/batch_size
-    if config['lr_sched_type'] == "cosine_annealing":
-        lr_sched = CosineAnnealingWarmupRestarts(optimizer, first_cycle_steps=5*num_steps_in_epoch, cycle_mult=1.0, max_lr=config['lr'], min_lr=1e-5, warmup_steps=num_steps_in_epoch, gamma=1.0)
-    elif config['lr_sched_type'] == "const":
+    if config['lr_sched_type'] == "const":
         lambda1 = lambda epoch: 1
         lr_sched = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda=lambda1)
     else:
