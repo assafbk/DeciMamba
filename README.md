@@ -70,6 +70,7 @@ We uploaded the weights of the best DeciMamba and Mamba models for each task:
 |3|Passkey Retrieval|Mamba-130m|[🤗 assafbk/mamba-130m-niah](https://huggingface.co/assafbk/mamba-130m-niah)|
 |4|Language Modeling|DeciMamba-130m|[🤗 assafbk/decimamba-130m-pg19](https://huggingface.co/assafbk/decimamba-130m-pg19)|
 |5|Language Modeling|Mamba-130m|[🤗 assafbk/mamba-130m-pg19](https://huggingface.co/assafbk/mamba-130m-pg19)|
+|6|Passkey Retrieval - Save Data For Mamba Attn Maps|Mamba-130m|[🤗 assafbk/mamba-130m-niah](https://huggingface.co/assafbk/mamba-130m-niah)|
 
 <br>
 
@@ -157,6 +158,15 @@ Special configurations:
 Short explanation: similar to table 10 in the paper, we scan the first decimating layer, and select the one with the best perfomrance. The model should perform quite well when using only this layer as a DeciMamba layer.
 
 <br>
+
+# Calculate Attention Maps
+To calculate Mamba's hidden attention maps:
+* Record data for matrices by running:
+```
+python finetune_ssm.py --eval 6 --device <device_id>
+```
+* open ```calculate_mamba_attn_maps.ipynb``` and run notebook.
+
 
 # Acknowledgments
 We thank the authors of Mamba for their amazing work and contribution: https://github.com/state-spaces/mamba

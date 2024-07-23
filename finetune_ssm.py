@@ -463,6 +463,9 @@ def evaluate_validation_set(model, model_processor, data_loader_val, config, epo
         val_log['niah_map'] = {'epoch':epoch, 'step':cur_step, 'niah_map': evaluator_response['niah_map']}
     if num_samples_to_log is not None:
         samples_df = samples_df.iloc[:num_samples_to_log]
+    
+    if config['record_debug_params']:
+        torch.save(params_for_debug_per_example, './artifacts/params_for_debug_per_example.pt')
         
     return samples_df, val_log
 
