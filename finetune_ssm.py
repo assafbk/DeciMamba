@@ -249,7 +249,7 @@ def inject_noise_to_context(config, golden_doc, noise_data_loader, idx, num_nois
     for i_doc, doc in enumerate(all_docs):
         noisy_context += f' <|Query|> {query} <|Document {doc_ids[i_doc]}|> {doc}'
     
-    return noisy_context, doc_ids[i_doc]
+    return noisy_context, doc_ids[len(noise_docs_before_golden)]
 
 def squad_update_id(pred, i, config):
     pred['id'] = f'{pred["id"]}_{config["multidoc_num_noise_docs_eval"][i]}'

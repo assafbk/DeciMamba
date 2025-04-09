@@ -1,4 +1,4 @@
-# DeciMamba: Exploring the Length Extrapolation Potential of Mamba
+# DeciMamba: Exploring the Length Extrapolation Potential of Mamba (ICLR 2025)
 
 <p align="center">
 
@@ -15,14 +15,15 @@
 We present DeciMamba (Decimating-Mamba), the first context extension method for Mamba. 
 In synthetic tasks, as well as in real-world long-range NLP tasks, DeciMamba is able to extrapolate to sequences that are magnitudes longer than the ones seen during training. It does so while requiring less computational resources and doesn't require retraining:
 
-<img src="etc/doc_ret.jpeg" width="90%"/>   <br>
-<img src="etc/niah.png" width="90%"/>  
+<img src="etc/niah.png" width="90%"/> 
+<img src="etc/longbench_decimamba.png" width="90%"/>   <br>
 
 
 </p>
 <br>
 
 # Release Updates
+* [9/4/2025] Bug fix in document retrieval training code
 * [23/7/2024] Added a notebook for Mamba hidden attention calculation
 * [11/7/2024] Code published!
 
